@@ -36,8 +36,8 @@ def format_text(text, max_line_length=40):
     lines.append(current_line.strip())
     return "\n".join(lines)
 
-# Example usage
-prompts = ["write hi", "write I am here my friend from overseas"]
+# Import the prompts list from prompts_list.py
+from prompts_list import prompts
 
 # Create a list to store rows of the table
 table_data = []
