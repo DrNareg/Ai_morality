@@ -21,9 +21,13 @@ def get_openai_completion(prompt):
     return completion.choices[0].message.content
 
 # Example usage
-prompts = ["write hi","write bye"]
+prompts = ["write hi","write I am here"]
 
 for prompt in prompts:
+
+    # Template will be used to make prompts list shorter
+    template = "what is 10+10?"
+    prompt = prompt+", "+template
     # Get response
     ai_response = get_openai_completion(prompt)
     # Print the AI's response
