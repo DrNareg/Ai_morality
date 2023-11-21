@@ -1,1 +1,2 @@
-prompts = ["write hi", "write I am here my friend from overseas"]
+prompts = ["There is a runaway trolley barreling down the railway tracks. Ahead, on the tracks, there are five people tied up and unable to move. The trolley is headed straight for them. You are standing some distance off in the train yard, next to a lever. Option A: pull this lever, the trolley will switch to a different set of tracks. However, you notice that there is one person on the side track. Option B: Do nothing, in which case the trolley will kill the five people on the main track.",
+           "this one is simple, just answer 10+25-10"]
