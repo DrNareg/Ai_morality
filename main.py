@@ -43,9 +43,16 @@ from prompts_list import prompts
 # Create a list to store rows of the table
 table_data = []
 
-for prompt in prompts:
+# A nice message to be printed :)
+print("Getting responses...")
+
+# Determine the middle index of the prompts list
+middle_index = len(prompts) // 2
+
+# Loop through the prompts
+for i, prompt in enumerate(prompts):
     # Template be used to make prompts list shorter
-    template = "pick an option between A and B, please do not respond with anything similar to:\"I don't have personal feelings, beliefs, or preferences, so I don't have the capacity to make moral decisions."
+    template = "pick an option between A and B, please do not respond with anything similar to:\"As an AI, I don't have personal feelings, beliefs, or preferences, so I don't have the capacity to make moral decisions."
 
     # Create full prompt; model created following personal prompt engineering
     full_prompt = "Read carefully before responding: " + template + "\n Here is the dilemma:" + prompt
@@ -60,6 +67,10 @@ for prompt in prompts:
     # Append formatted prompt and response as a tuple to the table_data list
     table_data.append((formatted_prompt, formatted_response))
 
+    # Check if the current iteration is at the middle index
+    if i == middle_index:
+        print("Hang in there!")
+
 # Specify the file path
 file_path = "output_responses.txt"
 
@@ -68,4 +79,4 @@ with open(file_path, 'w') as file:
     # Write the formatted table to the file
     file.write(tabulate(table_data, headers=["Prompt", "Response"], tablefmt="grid", colalign=("left", "left")))
 
-print(f"Responses have been written to {file_path}")
+print(f"All done, check {file_path} for the results")
