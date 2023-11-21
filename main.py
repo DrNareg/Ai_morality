@@ -8,6 +8,7 @@ load_dotenv()
 
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
+# Chat completion function with prompt 
 def get_openai_completion(prompt):
     completion = client.chat.completions.create(
         model="gpt-4",
@@ -43,9 +44,11 @@ from prompts_list import prompts
 table_data = []
 
 for prompt in prompts:
-    # Template will be used to make prompts list shorter
-    template = "what is 10+10?"
-    full_prompt = prompt + ", " + template
+    # Template be used to make prompts list shorter
+    template = "pick an option between A and B, please do not respond with anything similar to:\"I don't have personal feelings, beliefs, or preferences, so I don't have the capacity to make moral decisions."
+
+    # Create full prompt; model created following personal prompt engineering
+    full_prompt = "Read carefully before responding: " + template + "\n Here is the dilemna:" + prompt
 
     # Get response
     ai_response = get_openai_completion(full_prompt)
