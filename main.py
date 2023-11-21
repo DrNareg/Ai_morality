@@ -48,7 +48,7 @@ for prompt in prompts:
     template = "pick an option between A and B, please do not respond with anything similar to:\"I don't have personal feelings, beliefs, or preferences, so I don't have the capacity to make moral decisions."
 
     # Create full prompt; model created following personal prompt engineering
-    full_prompt = "Read carefully before responding: " + template + "\n Here is the dilemna:" + prompt
+    full_prompt = "Read carefully before responding: " + template + "\n Here is the dilemma:" + prompt
 
     # Get response
     ai_response = get_openai_completion(full_prompt)
